@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ppn55gjj5jdm"]
+
+[ext_resource type="Script" path="res://addons/tello_node/TelloNode.gd" id="1_c63vo"]
+[ext_resource type="Script" path="res://controller/Controller.gd" id="2_wofrk"]
+[ext_resource type="PackedScene" uid="uid://c58i51no31v1x" path="res://scenes/HUD.tscn" id="3_5m4s6"]
+[ext_resource type="Script" path="res://scenes/Video.gd" id="4_q3ieq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Controller" type="Node2D" parent="."]
+script = ExtResource("2_wofrk")
+
+[node name="Tello" type="Node" parent="Controller"]
+script = ExtResource("1_c63vo")
+
+[node name="Video" type="TextureRect" parent="Controller"]
+self_modulate = Color(0.588235, 0.588235, 0.588235, 1)
+script = ExtResource("4_q3ieq")
+
+[node name="HUD" parent="Controller" instance=ExtResource("3_5m4s6")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
